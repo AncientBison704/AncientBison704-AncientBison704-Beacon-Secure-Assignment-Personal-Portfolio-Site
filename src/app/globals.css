@@ -1,0 +1,250 @@
+body {
+  background-color: #0a192f;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  position: relative; 
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  bottom: 00px; 
+  width: 2px; 
+  height: 220px; 
+  background-color: #64ffda;
+}
+
+body::before {
+  left: 50px; 
+}
+
+body::after {
+  right: 50px; 
+}
+
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  margin-top: 45px;
+  margin-right: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.navbar li {
+  display: inline-block; 
+  margin-right: 50px;
+  font-size: 18px;
+  padding: 10px 0; 
+}
+
+.navbar li a {
+  color: rgb(204, 214, 246); 
+  text-decoration: none;
+  position: relative;
+}
+
+.navbar li a .number {
+  color: #64ffda;
+  margin-right: 10px;
+}
+
+.navbar li a.resume {
+  color: #64ffda;
+  border: 2px solid #64ffda;
+  margin-top: 10px;
+  padding: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar li a.resume:hover {
+  background-color: #64ffda;
+  color: #0a192f;
+}
+
+.navbar li a:hover {
+  color: #ddd;
+}
+
+.content {
+  margin-top: 180px;
+  width: 1050px;
+  height: 764px;
+  color: #8892b0;
+  margin-left: -300px;
+}
+
+.intro {
+  color: #64ffda;
+  font-weight: 400;
+  word-spacing: 3px;
+  font-size: 1.5em;
+}
+
+.name {
+  color: #ccd6f6;
+  font-weight: 600;
+  color: rgb(204, 214, 246);
+  margin-top: 0px;
+  display: block;
+  font-size: 5.5em;
+  margin-block-start: 0.3em;
+  margin-block-end: 0.1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.next_line
+{
+  color: #8892b0;
+  font-weight: 600;
+  margin-top: 0px;
+  display: block;
+  font-size: 5.5em;
+  margin-block-start: 0.1em;
+  margin-block-end: 0.8em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.description {
+  color: #8892b0;
+  width: 700px;
+  font-weight: 400;
+  margin-top: 0px;
+  display: block;
+  font-size: 1.3em;
+  line-height: 1.4; 
+  margin-block-end: 4em;
+}
+
+.get-in-touch {
+  color: #64ffda;
+  border: 2px solid #64ffda;
+  padding: 15px;
+  padding-left: 40px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-right: 40px;
+  border-radius: 5px;
+  font-size: 1.3em;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.email {
+  position: fixed;
+  right: 66px; 
+  bottom: 250px; 
+  transform: rotate(90deg); 
+  transform-origin: bottom right; 
+  color: #64ffda;
+  font-size: 1em;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 2em;
+  letter-spacing: 3px;
+} 
+
+.image-stack {
+  position: fixed;
+  left: 35px;
+  bottom: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stacked-image {
+  width: 40px; 
+  height: auto;
+  margin-bottom: 40px; 
+}
+
+.about_me_container {
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 80px;
+}
+
+.about_me {
+  width: 600px;
+  height: 764px;
+  color: #8892b0;
+  text-align: left; 
+  margin-top: 4em; 
+}
+
+.about_me h2 {
+  color: #64ffda;
+  font-size: 2em;
+  margin-bottom: 1.5em;
+}
+
+.about_me p {
+  font-size: 1.4em;
+  line-height: 1.7;
+}
+
+.about_me_line {
+  width: 350px;
+  height: 2px;
+  background-color: #8892b0;
+  margin-left: -78.5%; 
+  margin-top: 7em; 
+}
+
+.about_me_extra {
+  margin-top: 100px;
+  margin-left: 20%;
+  width: 450px; 
+  height: 450px;
+  border: 3px solid #64ffda; 
+}
+
+.profile_picture {
+  margin-left: -5%;
+  margin-top: -4%;
+  width: 450px; 
+  height: 450px; 
+  object-fit: cover;
+  z-index: 1; 
+}
+
+.highlight {
+  color: #64ffda;
+}
+
+.hobbies {
+  display: flex;
+  justify-content: space-between;
+  width: 60%; 
+  color: #64ffda;
+  font-size: 1.3em;
+  margin-left: -5%;
+}
+
+.hobby-list {
+  list-style-type: "> "
+}
+
+.work_experience_text {
+  color: #e6f1ff;
+}
