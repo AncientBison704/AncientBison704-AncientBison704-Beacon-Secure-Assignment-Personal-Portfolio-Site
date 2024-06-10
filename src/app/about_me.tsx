@@ -45,9 +45,9 @@ const AboutMe = () => {
   }, [aboutMeRef, aboutMeExtraRef, aboutMeLineRef]);
 
   return (
-    <div className="about_me_container">
-      <div ref={aboutMeRef} className={`about_me ${isVisible ? 'visible' : ''}`}>
-        <h2><span className="highlight">01.</span> <span className="work_experience_text">About Me</span></h2>
+    <div className="aboutMeContainer">
+      <div ref={aboutMeRef} className={`aboutMe ${isVisible ? 'visible' : ''}`}>
+        <h2><span className="highlight">01.</span> <span className="workExperienceText">About Me</span></h2>
         <p>
           Hello! I am Abdulhaseeb Khan and I am Located in the city of Lahore.
         </p>
@@ -70,17 +70,17 @@ const AboutMe = () => {
             <li>Leetcoding</li>
             <li>Tech Support</li>
           </ul>
-          <ul className="hobby-list">
+          <ul className="hobbyList">
             <li>Formula 1</li>
             <li>Gaming</li>
             <li>Eating</li>
           </ul>
         </div>
       </div>
-      <div ref={aboutMeExtraRef} className={`about_me_extra fade-in ${isVisible ? 'visible' : ''}`}>
-        <Image src={profilePicture} alt="Profile Picture" width={400} height={300} className="profile_picture" />
+      <div ref={aboutMeExtraRef} className={`aboutMeExtra fadeIn ${isVisible ? 'visible' : ''}`}>
+        <Image src={profilePicture} alt="Profile Picture" width={400} height={300} className="profilePicture" />
       </div>
-      <div ref={aboutMeLineRef} className={`about_me_line ${isVisible ? 'visible' : ''}`}></div>
+      <div ref={aboutMeLineRef} className={`aboutMeLine ${isVisible ? 'visible' : ''}`}></div>
     </div>
   );
 };

@@ -26,11 +26,11 @@ export default function Home() {
       height: `${tabHeight}px`
     });
 
-    const images = document.querySelectorAll('.stacked-image');
+    const images = document.querySelectorAll('.stackedImage');
     images.forEach((image, index) => {
       const imgElement = image as HTMLImageElement;
       imgElement.style.animationDelay = `${0.5 + index * 0.5}s`;
-      imgElement.classList.add('slide-in-vertical');
+      imgElement.classList.add('slideInVertical');
     });
 
     const animationDuration = 1000;
@@ -49,29 +49,29 @@ export default function Home() {
   return (
     <div className="container">
       <Navbar />
-      <div className="content fade-in">
+      <div className="content fadeIn">
         <h3 className="intro">Hello, my name is</h3>
         <h1 className="name">Abdulhaseeb Khan.</h1>
-        <h1 className="next_line">I Love coding!<br/></h1>
+        <h1 className="nextLine">I Love coding!<br/></h1>
         <p className="description">
           I am a Final Year Computer Science Student at Lahore University of Management Science. Mainly interested in Web Development and NLP.<br/><br/>
           I enjoy learning new skills and implementing them in real life!
         </p>
-        <a href="#contact" className="get-in-touch">Get In Touch</a>
+        <a href="#contact" className="getInTouch">Get In Touch</a>
       </div>
       <a href="mailto:abdulhaseeb494@gmail.com" className="email">abdulhaseeb494@gmail.com</a>
       <AboutMe/>
       <Experience />
-      <div className="project_container_header">
-        <h2><span className="highlight">03.</span> <span className="work_experience_text2">My Projects</span></h2>
-        <div className="about_me_line3"></div>
+      <div className="projectContainerHeader">
+        <h2><span className="highlight">03.</span> <span className="workExperienceText2">My Projects</span></h2>
+        <div className="aboutMeLine3"></div>
       </div>
       <Projects/>
       <MoreProjects />
-      <div className="image-stack">
-        <Image src={Github} alt="GitHub" width={30} height={30} className={`stacked-image ${animationFinished ? 'show' : ''}`} />
-        <Image src={Linkedin} alt="LinkedIn" width={30} height={30} className={`stacked-image ${animationFinished ? 'show' : ''}`} />
-        <Image src={Twitter} alt="Twitter" width={30} height={30} className={`stacked-image ${animationFinished ? 'show' : ''}`} />
+      <div className="imageStack">
+        <Image src={Github} alt="GitHub" width={30} height={30} className={`stackedImage ${animationFinished ? 'show' : ''}`} />
+        <Image src={Linkedin} alt="LinkedIn" width={30} height={30} className={`stackedImage ${animationFinished ? 'show' : ''}`} />
+        <Image src={Twitter} alt="Twitter" width={30} height={30} className={`stackedImage ${animationFinished ? 'show' : ''}`} />
       </div>
     </div>
   );

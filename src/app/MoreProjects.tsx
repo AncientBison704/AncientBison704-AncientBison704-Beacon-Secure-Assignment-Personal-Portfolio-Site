@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import White_Github from '../../public/white_github.png'
-import Folder_Image from '../../public/folder.png'
+import Image, { StaticImageData } from 'next/image';
+import White_Github from '../../public/white_github.png';
+import Folder_Image from '../../public/folder.png';
+
+interface Project {
+  title: string;
+  description: string;
+  techStack: string[];
+  githubIcon: StaticImageData;
+  folderIcon: StaticImageData;
+}
 
 const MoreProjects = () => {
   const [isVisible1, setIsVisible1] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const element = document.querySelector('.other_projects_container');
+      const element = document.querySelector('.otherProjectsContainer');
       if (element) {
         const elementTop = element.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
@@ -17,7 +25,7 @@ const MoreProjects = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
+    handleScroll();
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -25,177 +33,104 @@ const MoreProjects = () => {
 
   useEffect(() => {
     if (isVisible1) {
-      const gridItems = document.querySelectorAll('.grid_item');
+      const gridItems = document.querySelectorAll('.gridItem');
       gridItems.forEach((item, index) => {
         setTimeout(() => {
           item.classList.add('animate');
-        }, index * 300);
+        }, index * 500);
       });
     }
   }, [isVisible1]);
 
+  const projectData: Project[] = [
+    {
+      title: 'Custom Shell',
+      description: 'Developed a custom shell in C, featuring command execution, piping, and redirection.',
+      techStack: ['Docker', 'C', 'Linux'],
+      githubIcon: White_Github,
+      folderIcon: Folder_Image,
+    },
+    {
+      title: 'Handwritten Digits Classifier',
+      description: 'Classified Digit Images using K-Nearest-Neighours.',
+      techStack: ['Python', 'KNNS', 'Numpy', 'Sci-Kit'],
+      githubIcon: White_Github,
+      folderIcon: Folder_Image,
+    },
+    {
+      title: 'Transformer From Scratch',
+      description: 'Implemented using SastaGPT and trained on The Godfather Movie Script.',
+      techStack: ['SastaGPT', 'PyTorch', 'Numpy'],
+      githubIcon: White_Github,
+      folderIcon: Folder_Image,
+    },
+    {
+      title: 'Library Management System',
+      description: 'Implemented a system which allowed users to borrow and return books, while also having an interface for staff.',
+      techStack: ['React', 'Node', 'HTML', 'CSS', 'Mongo'],
+      githubIcon: White_Github,
+      folderIcon: Folder_Image,
+    },
+    {
+      title: 'Audio Classifier',
+      description: 'Implementation of Neural Network to classify tens of thousands of audio samples from the AudioMNIST dataset.',
+      techStack: ['Neural Network', 'PyTorch', 'Numpy'],
+      githubIcon: White_Github,
+      folderIcon: Folder_Image,
+    },
+    {
+      title: 'House Price Prediction',
+      description: 'In this project, I have implemented multivariate linear regression to predict the median price of homes in a Boston suburb.',
+      techStack: ['React', 'Node.js', 'CSS'],
+      githubIcon: White_Github,
+      folderIcon: Folder_Image,
+    },
+    {
+      title: 'Auction App',
+      description: 'Implemented a Real Time Auction App using MERN stack and socket.io',
+      techStack: ['React', 'Node.js', 'CSS', 'Socket.IO'],
+      githubIcon: White_Github,
+      folderIcon: Folder_Image,
+    },
+    {
+      title: 'Classification Models from Scratch',
+      description: 'In this project, I implement some classification models and compare their decision boundaries after tuning their hyperparameters.',
+      techStack: ['NumPy', 'Pandas', 'KNN', 'Decision Tree'],
+      githubIcon: White_Github,
+      folderIcon: Folder_Image,
+    },
+    {
+      title: 'Simple ChatBot',
+      description: 'This Project I Implemented a simple chat application using sockets and TCP/IP.',
+      techStack: ['Python', 'TCP/IP', 'Sockets'],
+      githubIcon: White_Github,
+      folderIcon: Folder_Image,
+    }
+  ];
+
   return (
-    <div className="other_projects_container">
+    <div className="otherProjectsContainer">
       <h3 className="highlight text-center">Other Noteworthy Projects</h3>
-      <div className={`grid_container ${isVisible1 ? 'fade-in' : ''}`}>
-        <div className="grid_item">
-          <div className="grid_item-content">
-            <div className="top-left-icon">
-              <Image src={Folder_Image} alt="Folder Icon" width={70} height={50} />
-            </div>
-            <div className="top-right-icon">
-              <Image src={White_Github} alt="GitHub Icon" width={40} height={40} />
-            </div>
-            <h4 className="project_header">Custom Shell</h4>
-            <p className="project_body">Developed a custom shell in C, featuring command execution, piping, and redirection.</p>
-            <div className="highlighted_tech_stack_new">
-              <span className="highlight">Docker</span>
-              <span className="highlight">C</span>
-              <span className="highlight">Linux</span>
-            </div>
-          </div>
-        </div>
-        <div className="grid_item">
-          <div className="grid_item-content">
-            <div className="top-left-icon">
-              <Image src={Folder_Image} alt="Folder Icon" width={70} height={50} />
-            </div>
-            <div className="top-right-icon">
-              <Image src={White_Github} alt="GitHub Icon" width={40} height={40} />
-            </div>
-            <h4 className="project_header">Handwritten Digits Classifier</h4>
-            <p className="project_body">Classified Digit Images using K-Nearest-Neighours.</p>
-            <div className="highlighted_tech_stack_new">
-              <span className="highlight">Python</span>
-              <span className="highlight">KNNS</span>
-              <span className="highlight">Numpy</span>
-              <span className="highlight">Sci-Kit</span>
+      <div className={`gridContainer ${isVisible1 ? 'fadeIn' : ''}`}>
+        {projectData.map((project, index) => (
+          <div className="gridItem" key={index}>
+            <div className="gridItemContent">
+              <div className="topLeftIcon">
+                <Image src={project.folderIcon} alt="Folder Icon" width={70} height={50} />
+              </div>
+              <div className="topRightIcon">
+                <Image src={project.githubIcon} alt="GitHub Icon" width={40} height={40} />
+              </div>
+              <h4 className="projectHeader">{project.title}</h4>
+              <p className="projectBody">{project.description}</p>
+              <div className="highlightedTechStackNew">
+                {project.techStack.map((tech, i) => (
+                  <span className="highlight" key={i}>{tech}</span>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-        <div className="grid_item">
-          <div className="grid_item-content">
-            <div className="top-left-icon">
-              <Image src={Folder_Image} alt="Folder Icon" width={70} height={50} />
-            </div>
-            <div className="top-right-icon">
-              <Image src={White_Github} alt="GitHub Icon" width={40} height={40} />
-            </div>
-            <h4 className="project_header">Transformer From Scratch</h4>
-            <p className="project_body">Implemented using SastaGPT and trained on The Godfather Movie Script.</p>
-            <div className="highlighted_tech_stack_new">
-              <span className="highlight">SastaGPT</span>
-              <span className="highlight">PyTorch</span>
-              <span className="highlight">Numpy</span>
-            </div>
-          </div>
-        </div>
-        <div className="grid_item">
-          <div className="grid_item-content">
-            <div className="top-left-icon">
-              <Image src={Folder_Image} alt="Folder Icon" width={70} height={50} />
-            </div>
-            <div className="top-right-icon">
-              <Image src={White_Github} alt="GitHub Icon" width={40} height={40} />
-            </div>
-            <h4 className="project_header">Library Management System</h4>
-            <p className="project_body">Implemented a system which allowed users to borrow and return books, while also having an interface for staff.</p>
-            <div className="highlighted_tech_stack_new">
-              <span className="highlight">React</span>
-              <span className="highlight">Node</span>
-              <span className="highlight">HTML</span>
-              <span className="highlight">CSS</span>
-              <span className="highlight">Mongo</span>
-            </div>
-          </div>
-        </div>
-        <div className="grid_item">
-          <div className="grid_item-content">
-            <div className="top-left-icon">
-              <Image src={Folder_Image} alt="Folder Icon" width={70} height={50} />
-            </div>
-            <div className="top-right-icon">
-              <Image src={White_Github} alt="GitHub Icon" width={40} height={40} />
-            </div>
-            <h4 className="project_header">Audio Classifier</h4>
-            <p className="project_body">Implementation of Neural Network to classify tens of thousands of audio samples from the AudioMNIST dataset.</p>
-            <div className="highlighted_tech_stack_new">
-              <span className="highlight">Neural Network</span>
-              <span className="highlight">PyTorch</span>
-              <span className="highlight">Numpy</span>
-            </div>
-          </div>
-        </div>
-        <div className="grid_item">
-          <div className="grid_item-content">
-            <div className="top-left-icon">
-              <Image src={Folder_Image} alt="Folder Icon" width={70} height={50} />
-            </div>
-            <div className="top-right-icon">
-              <Image src={White_Github} alt="GitHub Icon" width={40} height={40} />
-            </div>
-            <h4 className="project_header">House Price Prediction</h4>
-            <p className="project_body">In this project, I have implemented multivariate linear regression to predict the median price of homes in a Boston suburb.</p>
-            <div className="highlighted_tech_stack_new">
-              <span className="highlight">React</span>
-              <span className="highlight">Node.js</span>
-              <span className="highlight">CSS</span>
-            </div>
-          </div>
-        </div>
-        <div className="grid_item">
-          <div className="grid_item-content">
-            <div className="top-left-icon">
-              <Image src={Folder_Image} alt="Folder Icon" width={70} height={50} />
-            </div>
-            <div className="top-right-icon">
-              <Image src={White_Github} alt="GitHub Icon" width={40} height={40} />
-            </div>
-            <h4 className="project_header">Auction App</h4>
-            <p className="project_body">Implemented a Real Time Auction App using MERN stack and socket.io</p>
-            <div className="highlighted_tech_stack_new">
-              <span className="highlight">React</span>
-              <span className="highlight">Node.js</span>
-              <span className="highlight">CSS</span>
-              <span className="highlight">Socket.IO</span>
-            </div>
-          </div>
-        </div>
-        <div className="grid_item">
-          <div className="grid_item-content">
-            <div className="top-left-icon">
-              <Image src={Folder_Image} alt="Folder Icon" width={70} height={50} />
-            </div>
-            <div className="top-right-icon">
-              <Image src={White_Github} alt="GitHub Icon" width={40} height={40} />
-            </div>
-            <h4 className="project_header">Classification Models from Scratch</h4>
-            <p className="project_body">In this project, I implement some classification models and compare their decision boundaries after tuning their hyperparameters.</p>
-            <div className="highlighted_tech_stack_new">
-              <span className="highlight">NumPy</span>
-              <span className="highlight">Pandas</span>
-              <span className="highlight">KNN</span>
-              <span className="highlight">Decision Tree</span>
-            </div>
-          </div>
-        </div>
-        <div className="grid_item">
-          <div className="grid_item-content">
-            <div className="top-left-icon">
-              <Image src={Folder_Image} alt="Folder Icon" width={70} height={50} />
-            </div>
-            <div className="top-right-icon">
-              <Image src={White_Github} alt="GitHub Icon" width={40} height={40} />
-            </div>
-            <h4 className="project_header">Simple ChatBot</h4>
-            <p className="project_body">This Project I Implemented a simple chat application using sockets and TCP/IP. </p>
-            <div className="highlighted_tech_stack_new">
-              <span className="highlight">Python</span>
-              <span className="highlight">TCP/IP</span>
-              <span className="highlight">Sockets</span>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
